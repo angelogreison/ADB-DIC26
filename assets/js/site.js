@@ -8,7 +8,7 @@
      Si están vacíos, el sitio usa los datos de respaldo que están más abajo. */
   var SHEET_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQz9QfkstOZ6xhcdiya3aPfIrEIdEe9d83PiPVfDwymuaXIUalYUVMlnJsLVFdhPtI7i2kqWoUWtFE6/pub?gid=0&single=true&output=csv';   /* hoja de cupos publicada: pisa los turnos de horarios.csv */
   var LEADS_URL = '';
-  var HORARIOS_URL = '/assets/horarios.csv';   /* archivo que se edita a mano para actualizar turnos y precios */
+  var HORARIOS_URL = '/ADB-DIC26/assets/horarios.csv';   /* archivo que se edita a mano para actualizar turnos y precios */
   var header = document.getElementById('site-header');
   function money(n) { return '$' + Math.round(n).toLocaleString('es-AR'); }
 
@@ -72,7 +72,7 @@
   }
 
   /* ---------- Turnos con cupo ---------- */
-  /* Mantener sincronizado con la grilla de /servicios/planes-y-horarios/ (solo turnos con cupo). */
+  /* Mantener sincronizado con la grilla de /ADB-DIC26/servicios/planes-y-horarios/ (solo turnos con cupo). */
   var PRICES = { Modelado: 82000, Alfarería: 93500 };
   var SLOTS = [
     { d: 'Lunes', s: '14:00', e: '16:00', c: 'Modelado', n: 'Disponible' },
@@ -186,8 +186,8 @@
       if (last.length) list.push({ t: 'Últimos cupos: ' + last.map(function (x) { return x.d.slice(0, 3) + ' ' + x.s + ' (' + x.c.split(' ')[0].toLowerCase() + ')'; }).join(', '), h: '/#inscripcion' });
       var free = SLOTS.filter(function (x) { return x.n === 'Disponible'; });
       if (free.length) list.push({ t: 'Con lugar: ' + free.map(function (x) { return x.d.slice(0, 3) + ' ' + x.s; }).join(', '), h: '/#inscripcion' });
-      list.push({ t: 'Clase de prueba: modelado $28.000 o alfarería $40.000', h: '/servicios/clase-de-prueba/' });
-      list.push({ t: 'Horneado de piezas para ceramistas en horno de 70 litros', h: '/servicios/horneado-de-piezas/' });
+      list.push({ t: 'Clase de prueba: modelado $28.000 o alfarería $40.000', h: '/ADB-DIC26/servicios/clase-de-prueba/' });
+      list.push({ t: 'Horneado de piezas para ceramistas en horno de 70 litros', h: '/ADB-DIC26/servicios/horneado-de-piezas/' });
     };
     buildList();
     var i = 0, timer = null;
@@ -300,7 +300,7 @@
   function norm(s) { return String(s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, ''); }
   function loadIndex() {
     if (INDEX || loading) return; loading = true;
-    fetch('/assets/search-index.json').then(function (r) { return r.json(); }).then(function (j) {
+    fetch('/ADB-DIC26/assets/search-index.json').then(function (r) { return r.json(); }).then(function (j) {
       INDEX = j.map(function (p) { return { p: p, t: norm(p.t), d: norm(p.d), h: norm(p.h), k: norm(p.k), u: norm(p.u) }; });
       var q = document.getElementById('search-q'); if (q && q.value) run(q.value);
     }).catch(function () { loading = false; });
