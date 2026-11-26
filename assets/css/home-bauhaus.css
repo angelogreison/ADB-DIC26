@@ -5,14 +5,13 @@
    ========================================================================== */
 
 body.home-bauhaus{
-  --bh-marfil:#FFF7E8;
+  --bh-marfil:#DCCDB4;
   --bh-chocolate:#382016;
-  --bh-rojo:#D83B32;
-  --bh-coral:#F15B45;
+  --bh-rojo:#C94F36;
   --bh-turquesa:#00B8C4;
   --bh-azafran:#F2B705;
-  --bh-pistacho:#A6C936;
-  --bh-arena:#F0C69B;
+  --bh-pistacho:#A2B96A;
+  --bh-arena:#FFF7E8;
   --bh-font:'Outfit',system-ui,sans-serif;
   font-family:var(--bh-font);
   font-weight:500;
@@ -345,11 +344,13 @@ body.home-bauhaus .enroll .btn.send{background:var(--bh-pistacho);color:var(--bh
 body.home-bauhaus .price-box{border:2px solid var(--bh-chocolate);background:var(--bh-marfil)}
 
 /* ---------- Pie ---------- */
-body.home-bauhaus .foot{background:var(--bh-chocolate);color:var(--bh-marfil)}
+body.home-bauhaus .foot{background:var(--bh-chocolate);color:#FFFFFF}
 body.home-bauhaus .foot h2{color:var(--bh-azafran);font-size:1rem}
-body.home-bauhaus .foot a{color:var(--bh-marfil)}
+body.home-bauhaus .foot a{color:#FFFFFF}
 body.home-bauhaus .foot a:hover{color:var(--bh-pistacho)}
-body.home-bauhaus .foot-bottom{border-top:3px solid var(--bh-marfil);color:var(--bh-marfil)}
+body.home-bauhaus .foot .social a,
+body.home-bauhaus .foot .social a:hover{color:var(--bh-chocolate);background:var(--bh-azafran);border-color:var(--bh-azafran)}
+body.home-bauhaus .foot-bottom{border-top:3px solid var(--bh-marfil);color:#FFFFFF}
 body.home-bauhaus .foot-bottom a{color:var(--bh-azafran)}
 
 /* ---------- Escritorio: portada en dos columnas ---------- */
@@ -397,7 +398,7 @@ body.home-bauhaus .process-step:hover{transform:translateY(-4px) rotate(0deg)}
 body.home-bauhaus .process-step:nth-child(1){background:var(--bh-pistacho);transform:rotate(-1deg)}
 body.home-bauhaus .process-step:nth-child(2){background:var(--bh-azafran);transform:rotate(.5deg)}
 body.home-bauhaus .process-step:nth-child(3){background:var(--bh-turquesa);transform:rotate(-.5deg)}
-body.home-bauhaus .process-step:nth-child(4){background:var(--bh-coral);transform:rotate(1deg)}
+body.home-bauhaus .process-step:nth-child(4){background:var(--bh-rojo);transform:rotate(1deg)}
 body.home-bauhaus .process-icon{
   width:52px;
   height:52px;
@@ -599,7 +600,7 @@ body.home-bauhaus .btn.send{
 }
 body.home-bauhaus .bar-cta{padding:14px 22px;min-height:0;display:inline-flex}
 body.home-bauhaus .bar-cta:hover,
-body.home-bauhaus .btn.send:hover{background:var(--bh-coral)!important;color:var(--bh-chocolate)!important}
+body.home-bauhaus .btn.send:hover{background:var(--bh-azafran)!important;color:var(--bh-chocolate)!important}
 body.home-bauhaus .hero-cta .btn-secondary{margin-left:0}
 /* ---------- Botones de WhatsApp: verdes en toda la página ---------- */
 body.home-bauhaus .bar-cta,
@@ -644,7 +645,7 @@ body.home-bauhaus .feature-more{margin-left:auto;text-align:right;flex:0 0 auto}
 /* ---------- Texto del hero en bloque, como la etiqueta superior ---------- */
 body.home-bauhaus .hero-subtext{display:inline-block;background:var(--bh-chocolate);color:var(--bh-marfil);padding:14px 18px;max-width:600px;font-size:1rem;font-weight:500;line-height:1.5;margin-bottom:28px}
 /* ---------- Sección "¿Qué podés hacer en el taller?": rojo #F15B45 solo aquí ---------- */
-body.home-bauhaus .features{--bh-rojo:#F15B45}
+
 /* ---------- Texto del hero con el mismo formato que los botones ---------- */
 body.home-bauhaus .hero-subtext{background:#fff;color:var(--bh-chocolate);border:2px solid var(--bh-chocolate);box-shadow:4px 4px 0 var(--bh-chocolate);padding:16px 20px;font-weight:600}
 /* ---------- Etiqueta del hero en turquesa ---------- */
@@ -710,7 +711,7 @@ body.home-bauhaus .blog{background:var(--bh-turquesa)}
 body.home-bauhaus .blog::before{content:"";position:absolute;z-index:0;width:280px;height:280px;border-radius:50%;background:var(--bh-pistacho);border:4px solid var(--bh-chocolate);top:60px;right:-120px}
 body.home-bauhaus .blog::after{content:"";position:absolute;z-index:0;width:0;height:0;border-left:70px solid transparent;border-right:70px solid transparent;border-bottom:120px solid var(--bh-chocolate);bottom:-40px;left:40px}
 body.home-bauhaus .reviews-sec{background:var(--bh-marfil)}
-body.home-bauhaus .reviews-sec::before{content:"";position:absolute;z-index:0;width:240px;height:240px;border-radius:50%;background:var(--bh-coral);border:4px solid var(--bh-chocolate);bottom:-100px;left:-80px}
+body.home-bauhaus .reviews-sec::before{content:"";position:absolute;z-index:0;width:240px;height:240px;border-radius:50%;background:var(--bh-azafran);border:4px solid var(--bh-chocolate);bottom:-100px;left:-80px}
 body.home-bauhaus .pricing{background:var(--bh-pistacho)}
 body.home-bauhaus .pricing::before{content:"";position:absolute;z-index:0;top:-40px;right:-40px;width:0;height:0;border-left:110px solid transparent;border-right:110px solid transparent;border-top:180px solid var(--bh-rojo)}
 body.home-bauhaus .compare{background:var(--bh-marfil)}
@@ -737,7 +738,7 @@ body.home-bauhaus .bh-tick-set{display:inline-flex;align-items:center;white-spac
 body.home-bauhaus .bh-dot{display:inline-block;width:12px;height:12px;border-radius:50%;border:2px solid var(--bh-marfil);margin-right:8px;vertical-align:middle}
 body.home-bauhaus .bh-ok{background:#25D366}
 body.home-bauhaus .bh-low{background:#F2B705}
-body.home-bauhaus .bh-out{background:#D83B32}
+body.home-bauhaus .bh-out{background:#C94F36}
 /* ---------- Puntos de disponibilidad: círculos perfectos (sin el relleno de la barra) ---------- */
 body.home-bauhaus .bh-ticker-track .bh-dot{padding:0;padding-right:0;width:12px;height:12px;min-width:12px;flex:none}
 /* ---------- Opiniones, blog, preguntas y cierre: formato de la referencia en colores Artesana ---------- */
@@ -799,11 +800,11 @@ body.home-bauhaus .bh-facts li:nth-child(4){background:var(--bh-pistacho)}
 }
 /* ---------- Sobre Mariana: etiqueta con el mismo formato de los datos, texto oscuro ---------- */
 body.home-bauhaus .bh-mariana-label{display:inline-block;background:var(--bh-marfil);color:var(--bh-chocolate);border:3px solid var(--bh-chocolate);box-shadow:4px 4px 0 var(--bh-chocolate);padding:14px;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:16px}
-body.home-bauhaus .bh-facts li:nth-child(1){background:var(--bh-coral);color:var(--bh-chocolate)}
+body.home-bauhaus .bh-facts li:nth-child(1){background:var(--bh-rojo);color:var(--bh-marfil)}
 /* ---------- Planes y precios: colores de la paleta, etiquetas y nota ---------- */
 body.home-bauhaus .plan:nth-child(1){background:var(--bh-turquesa)}
-body.home-bauhaus .plan:nth-child(2){background:var(--bh-coral)}
-body.home-bauhaus .plan .plan-tag{display:inline-block;background:var(--bh-chocolate);color:var(--bh-marfil);padding:6px 10px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:16px}
+body.home-bauhaus .plan:nth-child(2){background:var(--bh-azafran)}
+body.home-bauhaus .plan .plan-tag{display:inline-block;background:var(--bh-chocolate);color:#FFFFFF;padding:6px 10px;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:16px}
 body.home-bauhaus .plan-note{margin:32px auto 0;max-width:1280px;text-align:center;background:var(--bh-marfil);border:3px solid var(--bh-chocolate);box-shadow:4px 4px 0 var(--bh-chocolate);padding:14px 18px;font-weight:700;color:var(--bh-chocolate)}
 /* ---------- Blog: la caja de texto ocupa toda la altura de cada tarjeta ---------- */
 body.home-bauhaus .blog-card{display:flex;flex-direction:column}
@@ -826,7 +827,7 @@ body.home-bauhaus .bh-mariana{background:var(--bh-marfil)}
 body.home-bauhaus .bh-mariana::before{background:var(--bh-pistacho)}
 body.home-bauhaus .pricing{background:var(--bh-pistacho)}
 body.home-bauhaus .blog{background:var(--bh-turquesa)}
-body.home-bauhaus .reviews-sec{background:var(--bh-coral)}
+body.home-bauhaus .reviews-sec{background:var(--bh-turquesa)}
 body.home-bauhaus .reviews-sec::before{background:var(--bh-azafran)}
 body.home-bauhaus .faq-sec{background:var(--bh-marfil)}
 body.home-bauhaus .cta{background:var(--bh-azafran)}
@@ -896,7 +897,7 @@ body.home-bauhaus .plan-list li{padding:14px 0;border-bottom:2px solid var(--bh-
 body.home-bauhaus .plan-list li:last-child{border-bottom:0}
 body.home-bauhaus .plan:nth-child(2) .plan-list li{border-bottom-color:rgba(255,255,255,.25)}
 body.home-bauhaus .plan .btn{background:var(--bh-rojo)!important;color:#fff!important;margin-top:auto;width:100%}
-body.home-bauhaus .plan .btn:hover{background:var(--bh-coral)!important;color:var(--bh-chocolate)!important}
+body.home-bauhaus .plan .btn:hover{background:var(--bh-azafran)!important;color:var(--bh-chocolate)!important}
 @media (min-width:1024px){body.home-bauhaus .plan:nth-child(2){transform:translateY(-16px)}}
 /* ---------- Figuras: dentro de su sección (no tocan otras) y con línea de grosor uniforme ---------- */
 body.home-bauhaus .features::before{top:40px;right:40px;left:auto;bottom:auto}
@@ -1038,9 +1039,9 @@ body.home-bauhaus .benefits{background:var(--bh-pistacho)}
 body.home-bauhaus .bh-mariana{background:var(--bh-marfil)}
 body.home-bauhaus .pricing{background:var(--bh-turquesa)}
 body.home-bauhaus .blog{background:var(--bh-arena)}
-body.home-bauhaus .reviews-sec{background:var(--bh-coral)}
+body.home-bauhaus .reviews-sec{background:var(--bh-turquesa)}
 body.home-bauhaus .faq-sec{background:var(--bh-marfil)}
-body.home-bauhaus .cta{background:#D83B32;color:var(--bh-marfil)}
+body.home-bauhaus .cta{background:#C94F36;color:var(--bh-marfil)}
 body.home-bauhaus .cta h2,
 body.home-bauhaus .cta p{color:var(--bh-marfil)}
 body.home-bauhaus .cta .btn-primary{background:var(--bh-chocolate);color:var(--bh-marfil)}
@@ -1085,3 +1086,207 @@ body.home-bauhaus .hero h1{color:var(--bh-arena)}
 body.home-bauhaus .hero h1{color:#FFF7E8}
 /* ---------- Título del hero: interlineado más abierto para que no se tapen las tildes ---------- */
 body.home-bauhaus .hero h1{line-height:1.08}
+/* ---------- Cierre: botón de reservar en amarillo ---------- */
+body.home-bauhaus .cta .btn-primary{background:var(--bh-azafran);color:var(--bh-chocolate)}
+body.home-bauhaus .cta .btn-primary:hover{background:var(--bh-marfil);color:var(--bh-chocolate)}
+/* ---------- Planes: plan destacado en amarillo con texto oscuro ---------- */
+body.home-bauhaus .plan:nth-child(2){background:var(--bh-azafran);color:var(--bh-chocolate)}
+body.home-bauhaus .plan:nth-child(2) .plan-name,
+body.home-bauhaus .plan:nth-child(2) .plan-price,
+body.home-bauhaus .plan:nth-child(2) .plan-unit,
+body.home-bauhaus .plan:nth-child(2) .plan-list li{color:var(--bh-chocolate)}
+body.home-bauhaus .plan:nth-child(2) .plan-list li{border-bottom-color:var(--bh-chocolate)}
+body.home-bauhaus .plan:nth-child(2) .plan-tag{background:var(--bh-chocolate);color:#FFFFFF}
+/* ---------- Preguntas frecuentes: respuesta en amarillo con texto oscuro ---------- */
+body.home-bauhaus .faq .ans{background:var(--bh-azafran)}
+body.home-bauhaus .faq .ans p,
+body.home-bauhaus .faq .ans a{color:var(--bh-chocolate)}
+/* ---------- Móvil: el formulario respira con márgenes laterales y espacio arriba y abajo ---------- */
+@media (max-width:1023px){
+  body.home-bauhaus .hero-right{padding:32px 20px 40px}
+  body.home-bauhaus .hero-right .enroll{padding:0}
+}
+/* ---------- Planes en móvil: carrusel que se desliza ---------- */
+@media (max-width:1023px){
+  body.home-bauhaus .pricing-grid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:20px;padding:8px 4px 20px;scrollbar-width:none}
+  body.home-bauhaus .pricing-grid::-webkit-scrollbar{display:none}
+  body.home-bauhaus .pricing-grid .plan{flex:0 0 84%;scroll-snap-align:center;transform:none}
+  body.home-bauhaus .pricing-grid .plan:nth-child(2){transform:none}
+}
+/* ---------- Planes en móvil: arrastrar o usar las flechas ---------- */
+body.home-bauhaus .bh-car-planes{max-width:none}
+@media (max-width:1023px){
+  body.home-bauhaus .pl-track{display:flex;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;gap:20px;padding:8px 4px 20px;scrollbar-width:none;flex:1;min-width:0;-webkit-overflow-scrolling:touch;touch-action:pan-x}
+  body.home-bauhaus .pl-track::-webkit-scrollbar{display:none}
+  body.home-bauhaus .pl-track .plan{flex:0 0 84%;scroll-snap-align:center;transform:none}
+  body.home-bauhaus .bh-car-planes{display:flex;align-items:center;gap:8px}
+}
+@media (min-width:1024px){
+  body.home-bauhaus .bh-car-m{display:none}
+  body.home-bauhaus .pl-track{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;padding:0;overflow:visible}
+}
+/* ---------- Preguntas frecuentes: respuesta abierta en arena #FFF7E8 ---------- */
+body.home-bauhaus .faq .ans{background:#FFF7E8}
+/* ---------- Blog: interlink "Leer la guía" al pie de cada tarjeta ---------- */
+body.home-bauhaus .bh-more{display:block;background:#fff;padding:0 24px 24px}
+body.home-bauhaus .bh-more .interlink{color:var(--bh-chocolate)}
+/* ---------- Servicios: tarjetas que eran rojas ahora en pistacho ---------- */
+body.home-bauhaus .feature-card:nth-child(3n+1){background:var(--bh-pistacho);color:var(--bh-chocolate)}
+body.home-bauhaus .feature-card:nth-child(3n+1) .feature-price{color:var(--bh-chocolate)}
+/* ---------- Servicios: solo el enlace de texto es clicable; tarjetas verdes en #C94F36 ---------- */
+body.home-bauhaus .feature-title a::after{content:none}
+body.home-bauhaus .feature-card:nth-child(3n+1){background:#C94F36;color:var(--bh-marfil)}
+body.home-bauhaus .feature-card:nth-child(3n+1) .feature-price{color:var(--bh-marfil)}
+body.home-bauhaus .feature-card:nth-child(3n+1) .feature-title a{color:var(--bh-marfil)}
+/* ---------- Servicios: fondo #C94F36; tarjetas verdes; interlink al pie de cada tarjeta ---------- */
+body.home-bauhaus .features{background:#C94F36}
+body.home-bauhaus .features .section-title{color:var(--bh-marfil)}
+body.home-bauhaus .feature-card:nth-child(3n+1){background:var(--bh-pistacho);color:var(--bh-chocolate)}
+body.home-bauhaus .feature-card:nth-child(3n+1) .feature-price,
+body.home-bauhaus .feature-card:nth-child(3n+1) .feature-title a{color:var(--bh-chocolate)}
+body.home-bauhaus .feature-foot .interlink{color:inherit;border-bottom-color:currentColor}
+/* ---------- Triángulo de preguntas: trazo de 4 px uniforme (imagen vectorial) ---------- */
+@media (min-width:1024px){
+  body.home-bauhaus .faq-sec::before{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 170 150'%3E%3Cpolygon points='85,2 168,148 2,148' fill='%23F2B705' stroke='%23382016' stroke-width='4' stroke-linejoin='miter'/%3E%3C/svg%3E") no-repeat center/100% 100%;background-color:transparent;border:0;clip-path:none;filter:none;width:170px;height:150px;top:-30px;right:60px}
+  body.home-bauhaus .faq-sec::after{display:none}
+}
+/* ---------- Servicios: fondo #FFF7E8 con título oscuro ---------- */
+body.home-bauhaus .features{background:#FFF7E8}
+body.home-bauhaus .features .section-title{color:var(--bh-chocolate)}
+/* ---------- El taller: fondo #FFF7E8 ---------- */
+body.home-bauhaus .benefits{background:#FFF7E8;color:var(--bh-chocolate)}
+/* ---------- Orden de fondos (desktop y móvil): ninguna sección repite el fondo de la anterior ---------- */
+body.home-bauhaus .hero{background:var(--bh-marfil)}
+body.home-bauhaus .bh-stats{background:var(--bh-azafran)}
+body.home-bauhaus .features{background:var(--bh-arena)}
+body.home-bauhaus .compare{background:var(--bh-marfil)}
+body.home-bauhaus .benefits{background:var(--bh-pistacho);color:var(--bh-chocolate)}
+body.home-bauhaus .bh-mariana{background:var(--bh-marfil)}
+body.home-bauhaus .pricing{background:var(--bh-turquesa)}
+body.home-bauhaus .blog{background:var(--bh-arena)}
+body.home-bauhaus .reviews-sec{background:var(--bh-turquesa)}
+body.home-bauhaus .faq-sec{background:var(--bh-marfil)}
+body.home-bauhaus .cta{background:#C94F36;color:var(--bh-marfil)}
+/* ---------- El taller: fondo azafrán (el pistacho no se usa como fondo de sección) ---------- */
+body.home-bauhaus .benefits{background:var(--bh-azafran);color:var(--bh-chocolate)}
+/* ---------- Fondos alternados marfil y arena (el cierre queda en rojo arcilla) ---------- */
+body.home-bauhaus .hero{background:var(--bh-marfil)}
+body.home-bauhaus .bh-stats{background:var(--bh-arena)}
+body.home-bauhaus .features{background:var(--bh-marfil)}
+body.home-bauhaus .compare{background:var(--bh-arena)}
+body.home-bauhaus .benefits{background:var(--bh-marfil);color:var(--bh-chocolate)}
+body.home-bauhaus .bh-mariana{background:var(--bh-arena)}
+body.home-bauhaus .pricing{background:var(--bh-marfil)}
+body.home-bauhaus .blog{background:var(--bh-arena)}
+body.home-bauhaus .reviews-sec{background:var(--bh-marfil)}
+body.home-bauhaus .faq-sec{background:var(--bh-arena)}
+body.home-bauhaus .cta{background:#C94F36;color:var(--bh-marfil)}
+/* ---------- Plan destacado (amarillo): botón en turquesa con texto oscuro ---------- */
+body.home-bauhaus .plan:nth-child(2) .btn{background:var(--bh-turquesa)!important;color:var(--bh-chocolate)!important;border-color:var(--bh-chocolate)}
+body.home-bauhaus .plan:nth-child(2) .btn:hover{background:var(--bh-marfil)!important;color:var(--bh-chocolate)!important}
+/* ---------- Franja de cifras: azafrán (excepción a la alternancia) ---------- */
+body.home-bauhaus .bh-stats{background:var(--bh-azafran)}
+/* ---------- Nota de seña en los planes: azafrán ---------- */
+body.home-bauhaus .plan-note{background:var(--bh-azafran)}
+/* ---------- Blog: cajas de artículo en pistacho, turquesa y azafrán (se repite) ---------- */
+body.home-bauhaus .blog-card{background:var(--bh-pistacho)}
+body.home-bauhaus .blog-card:nth-child(2){background:var(--bh-turquesa)}
+body.home-bauhaus .blog-card:nth-child(3){background:var(--bh-azafran)}
+body.home-bauhaus .blog-card:nth-child(4){background:var(--bh-pistacho)}
+body.home-bauhaus .blog-card .blog-content,
+body.home-bauhaus .blog-card .bh-more{background:transparent}
+body.home-bauhaus .blog-card .blog-content{color:var(--bh-chocolate)}
+/* ---------- Blog: borde chocolate visible en todas las tarjetas ---------- */
+body.home-bauhaus .blog-card{border:4px solid var(--bh-chocolate)}
+body.home-bauhaus .blog-card .blog-image{border-bottom:4px solid var(--bh-chocolate)}
+
+/* ---------- Servicios: mismo estilo que el blog (texto sobre blanco y franja de color abajo) ---------- */
+body.home-bauhaus .feature-card{background:#FFFFFF;color:var(--bh-chocolate);padding:0 0 0}
+body.home-bauhaus .feature-card .feature-title,
+body.home-bauhaus .feature-card .feature-title a,
+body.home-bauhaus .feature-card .feature-desc{color:var(--bh-chocolate)}
+body.home-bauhaus .feature-card .feature-title{margin:20px 24px 12px}
+body.home-bauhaus .feature-card .feature-desc{margin:0 24px 16px}
+body.home-bauhaus .feature-foot{margin:auto 0 0;padding:18px 24px 22px;border-top:0;background:var(--bh-pistacho);color:var(--bh-chocolate);flex-wrap:wrap}
+body.home-bauhaus .feature-card:nth-child(3n+2) .feature-foot{background:var(--bh-turquesa)}
+body.home-bauhaus .feature-card:nth-child(3n) .feature-foot{background:var(--bh-azafran)}
+body.home-bauhaus .feature-foot .feature-price,
+body.home-bauhaus .feature-foot .feature-more,
+body.home-bauhaus .feature-foot .interlink{color:var(--bh-chocolate)}
+body.home-bauhaus .feature-foot .interlink{border-bottom-color:var(--bh-chocolate)}
+body.home-bauhaus .feature-photo{margin:0 0 0;border-bottom:4px solid var(--bh-chocolate)}
+body.home-bauhaus .feature-card:nth-child(3n+1){background:#FFFFFF}
+body.home-bauhaus .feature-card:nth-child(3n+1) .feature-price{color:var(--bh-chocolate)}
+body.home-bauhaus .feature-card:nth-child(3n+1) .feature-title a{color:var(--bh-chocolate)}
+/* ---------- Servicios: todas las tarjetas con cuerpo blanco y franja de color abajo ---------- */
+body.home-bauhaus .features .feature-card:nth-child(n){background:#FFFFFF}
+/* ---------- Plan destacado: caja pistacho y botón azafrán ---------- */
+body.home-bauhaus .plan:nth-child(2){background:var(--bh-pistacho)}
+body.home-bauhaus .plan:nth-child(2) .btn{background:var(--bh-azafran)!important;color:var(--bh-chocolate)!important;border-color:var(--bh-chocolate)}
+body.home-bauhaus .plan:nth-child(2) .btn:hover{background:var(--bh-marfil)!important;color:var(--bh-chocolate)!important}
+/* ---------- Blog: subrayado del enlace en chocolate (visible sobre cualquier color) ---------- */
+body.home-bauhaus .bh-more .interlink{border-bottom-color:var(--bh-chocolate)}
+/* ---------- Servicios: mismo formato exacto que el blog ---------- */
+body.home-bauhaus .features .feature-decorator{display:none}
+body.home-bauhaus .features .feature-card{border:4px solid var(--bh-chocolate);box-shadow:8px 8px 0 var(--bh-chocolate)}
+body.home-bauhaus .features .bh-cat{display:inline-block;background:var(--bh-chocolate);color:var(--bh-marfil);padding:4px 10px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin:24px 24px 12px}
+body.home-bauhaus .features .feature-title{text-transform:none;font-size:1.25rem;font-weight:700;line-height:1.3;margin:0 24px 12px}
+body.home-bauhaus .features .feature-desc{font-size:.95rem;margin:0 24px 12px}
+body.home-bauhaus .features .bh-price-body{display:block;margin:0 24px 24px;font-size:.9rem;font-weight:700;color:var(--bh-chocolate)}
+body.home-bauhaus .features .feature-foot{justify-content:flex-start;padding:14px 24px 16px;flex-wrap:nowrap}
+body.home-bauhaus .features .feature-foot .interlink{font-size:.8rem;font-weight:700;margin-top:0}
+/* ---------- Plan destacado: caja turquesa ---------- */
+body.home-bauhaus .plan:nth-child(2){background:var(--bh-turquesa)}
+/* ---------- Servicios: la descripción toma el formato de título; la etiqueta muestra el título ---------- */
+body.home-bauhaus .features .bh-desc-title{font-size:1.25rem;font-weight:700;line-height:1.3;color:var(--bh-chocolate);margin:0 24px 12px}
+/* ---------- Servicios: precio destacado ---------- */
+body.home-bauhaus .features .bh-price-body{font-size:1.6rem;font-weight:900;line-height:1.1;margin:4px 24px 20px;color:var(--bh-chocolate)}
+/* ---------- Cabecera: fondo marfil #FFF7E8 ---------- */
+body.home-bauhaus .site-header,
+body.home-bauhaus .site-header .bar,
+body.home-bauhaus .site-header .menu,
+body.home-bauhaus .site-header .search{background:#FFF7E8!important}
+/* ---------- Barra superior, buscador y formulario en marfil #FFF7E8 ---------- */
+body.home-bauhaus .infobar .bh-search input{background:#FFF7E8!important;border-color:#FFF7E8!important}
+body.home-bauhaus .infobar a,
+body.home-bauhaus .infobar .shortcuts a{color:#FFF7E8!important}
+body.home-bauhaus .hero-right{background:#FFF7E8!important}
+body.home-bauhaus .hero-right .field input,
+body.home-bauhaus .hero-right .field select{background:#FFF7E8!important}
+/* ---------- Buscador: sin borde visible ---------- */
+body.home-bauhaus .infobar .bh-search input{border:0!important}
+/* ---------- Campos del formulario en blanco ---------- */
+body.home-bauhaus .hero-right .field input,
+body.home-bauhaus .hero-right .field select{background:#FFFFFF!important}
+/* ---------- Buscador: fondo blanco y borde chocolate ---------- */
+body.home-bauhaus .infobar .bh-search input{background:#FFFFFF!important;border:2px solid var(--bh-chocolate)!important}
+/* ---------- Accesos de la barra superior en blanco ---------- */
+body.home-bauhaus .infobar .shortcuts a{color:#FFFFFF!important}
+/* ---------- Barra de cupos: texto en blanco ---------- */
+body.home-bauhaus .bh-tick-set{color:#FFFFFF}
+/* ---------- Tabla comparativa: primera columna turquesa y encabezados en blanco ---------- */
+body.home-bauhaus .tablewrap tbody th{background:var(--bh-turquesa)}
+body.home-bauhaus .tablewrap thead th{color:#FFFFFF}
+/* ---------- Puntos de la lista de El taller: rojo ladrillo ---------- */
+body.home-bauhaus .bh-points li::before{background:#C94F36}
+/* ---------- Plan destacado: caja azafrán y botón rojo ladrillo ---------- */
+body.home-bauhaus .plan:nth-child(2){background:var(--bh-azafran)}
+body.home-bauhaus .plan:nth-child(2) .plan-name,
+body.home-bauhaus .plan:nth-child(2) .plan-price,
+body.home-bauhaus .plan:nth-child(2) .plan-unit,
+body.home-bauhaus .plan:nth-child(2) .plan-list li{color:var(--bh-chocolate)}
+body.home-bauhaus .plan:nth-child(2) .btn{background:#C94F36!important;color:#FFF7E8!important;border-color:var(--bh-chocolate)}
+body.home-bauhaus .plan:nth-child(2) .btn:hover{background:var(--bh-chocolate)!important;color:#FFF7E8!important}
+/* ---------- Cierre: título y texto en #FFF7E8 ---------- */
+body.home-bauhaus .cta h2,
+body.home-bauhaus .cta p{color:#FFF7E8!important}
+/* ---------- Tabla comparativa: primera columna en azafrán ---------- */
+body.home-bauhaus .tablewrap tbody th{background:var(--bh-azafran)}
+/* ---------- Etiquetas oscuras: texto en blanco ---------- */
+body.home-bauhaus .bh-cat{color:#FFFFFF!important}
+
+/* ---------- Botón "Leer más opiniones" y flechas de carruseles: fondo rojo ---------- */
+body.home-bauhaus .reviews-cta .more{background:var(--bh-rojo);color:#FFF7E8}
+body.home-bauhaus .reviews-cta .more:hover{background:var(--bh-azafran);color:var(--bh-chocolate)}
+body.home-bauhaus .bh-car-btn{background:var(--bh-rojo);color:#FFF7E8}
+body.home-bauhaus .bh-car-btn:hover{background:var(--bh-azafran);color:var(--bh-chocolate)}
