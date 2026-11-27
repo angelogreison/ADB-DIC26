@@ -72,8 +72,10 @@
   }
 
   /* ---------- Turnos con cupo ---------- */
-  /* Mantener sincronizado con la grilla de /ADB-DIC26/servicios/planes-y-horarios/ (solo turnos con cupo). */
+  /* Mantener sincronizado con la grilla de /servicios/planes-y-horarios/ (solo turnos con cupo). */
   var PRICES = { Modelado: 82000, Alfarería: 93500 };
+  /* Clase de prueba (una sola clase, no es plan mensual): precios publicados en la página de clase de prueba */
+  var PRICES_PRUEBA = { Modelado: 28000, Alfarería: 40000 };
   var SLOTS = [
     { d: 'Lunes', s: '14:00', e: '16:00', c: 'Modelado', n: 'Disponible' },
     { d: 'Lunes', s: '16:00', e: '18:00', c: 'Alfarería', n: 'Disponible' },
@@ -172,7 +174,9 @@
     var base = HORARIOS_URL ? fetchText(HORARIOS_URL, 5000).then(function (t) { if (applySheet(t)) notify(); }).catch(function () {}) : Promise.resolve();
     base.then(function () {
       if (!SHEET_CSV_URL) return;
-      return fetchText(SHEET_CSV_URL, 6000).then(function (t) { if (applySheet(t)) notify(); }).catch(function () { /* si falla, quedan los de horarios.csv */ });
+      var pedirHoja = function () { return fetchText(SHEET_CSV_URL + '&t=' + Date.now(), 8000).then(function (t) { if (applySheet(t)) notify(); }).catch(function () { /* si falla, quedan los datos anteriores */ }); };
+      pedirHoja();
+      setInterval(pedirHoja, 300000); /* se vuelve a leer la hoja cada 5 minutos */
     });
   }  function planOf(x) { return /^Alfarería/.test(x.c) ? 'Alfarería' : 'Modelado'; }
 
@@ -183,9 +187,9 @@
     var buildList = function () {
       list.length = 0;
       var last = SLOTS.filter(function (x) { return x.n === 'Último cupo'; });
-      if (last.length) list.push({ t: 'Últimos cupos: ' + last.map(function (x) { return x.d.slice(0, 3) + ' ' + x.s + ' (' + x.c.split(' ')[0].toLowerCase() + ')'; }).join(', '), h: '/#inscripcion' });
+      if (last.length) list.push({ t: 'Últimos cupos: ' + last.map(function (x) { return x.d.slice(0, 3) + ' ' + x.s + ' (' + x.c.split(' ')[0].toLowerCase() + ')'; }).join(', '), h: '/ADB-DIC26/#inscripcion' });
       var free = SLOTS.filter(function (x) { return x.n === 'Disponible'; });
-      if (free.length) list.push({ t: 'Con lugar: ' + free.map(function (x) { return x.d.slice(0, 3) + ' ' + x.s; }).join(', '), h: '/#inscripcion' });
+      if (free.length) list.push({ t: 'Con lugar: ' + free.map(function (x) { return x.d.slice(0, 3) + ' ' + x.s; }).join(', '), h: '/ADB-DIC26/#inscripcion' });
       list.push({ t: 'Clase de prueba: modelado $28.000 o alfarería $40.000', h: '/ADB-DIC26/servicios/clase-de-prueba/' });
       list.push({ t: 'Horneado de piezas para ceramistas en horno de 70 litros', h: '/ADB-DIC26/servicios/horneado-de-piezas/' });
     };
@@ -226,23 +230,23 @@
     msgEl.addEventListener('focusout', start);
   }
   /* ---------- Envío de una reserva (hero y mini formulario de horarios) ---------- */
-  function sendReservation(x, v, src) {
-    var plan = planOf(x), p = PRICES[plan];
+  function sendReservation(x, v, src, modo) {
+    var prueba = modo === 'prueba';
+    var plan = planOf(x), p = prueba ? PRICES_PRUEBA[plan] : PRICES[plan];
     var msg = '¡Hola Mariana! Quiero reservar un lugar en el taller:\n\n' +
       'Nombre: ' + v.nombre + '\n' +
       'Email: ' + v.email + '\n' +
       'WhatsApp: ' + v.whatsapp + '\n' +
       'Día: ' + x.d + '\n' +
       'Horario: ' + x.s + ' a ' + x.e + 'hs (' + x.c + ')\n' +
-      'Plan: Plan ' + plan + ' (' + money(p) + ' por mes)\n' +
-      'Seña (50%): ' + money(p / 2);
+      (prueba ? 'Clase de prueba: ' + plan + ' (' + money(p) + ')' : 'Plan: Plan ' + plan + ' (' + money(p) + ' por mes)\n' + 'Seña (50%): ' + money(p / 2));
     if (window.fbq) { try { window.fbq('track', 'Lead'); } catch (_) {} }
     if (window.gtag) { try { window.gtag('event', 'generate_lead', { method: src }); } catch (_) {} }
     if (LEADS_URL && !v.web && window.fetch) {
       try {
         fetch(LEADS_URL, { method: 'POST', mode: 'no-cors', keepalive: true, headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify({ nombre: v.nombre, email: v.email, whatsapp: v.whatsapp,
-            dia: x.d, horario: x.s + ' a ' + x.e, clase: x.c, plan: 'Plan ' + plan, precio: p, sena: p / 2, pagina: location.pathname, origen: src }) }).catch(function () {});
+            dia: x.d, horario: x.s + ' a ' + x.e, clase: x.c, plan: prueba ? 'Clase de prueba' : 'Plan ' + plan, precio: p, sena: prueba ? null : p / 2, pagina: location.pathname, origen: src }) }).catch(function () {});
       } catch (_) {}
     }
     var url = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(msg);
@@ -263,9 +267,15 @@
       fillHours();
     }
     buildDays(); onData.push(buildDays);
+    var prueba = form.getAttribute('data-modo') === 'prueba';
     function showPrice() {
       if (hor.value === '') { box.hidden = true; box.innerHTML = ''; return; }
       var x = SLOTS[+hor.value], plan = planOf(x), p = PRICES[plan], sena = p / 2;
+      if (prueba) {
+        box.innerHTML = '<div class="main"><span><strong>Clase de prueba · ' + plan + '</strong></span><b>' + money(PRICES_PRUEBA[plan]) + '</b></div>' + 'Si seguís, lo que pagaste se descuenta del plan mensual.';
+        box.hidden = false;
+        return;
+      }
       box.innerHTML = '<div class="main"><span><strong>Plan ' + plan + '</strong> (por mes)</span><b>' + money(p) + '</b></div>' +
         'Seña para reservar (50%): <strong>' + money(sena) + '</strong><br>El resto (' + money(sena) + ') lo abonás en tu primera clase.';
       box.hidden = false;
@@ -291,7 +301,7 @@
         return;
       }
       err.classList.remove('on');
-      sendReservation(SLOTS[+f.horario.value], { nombre: f.nombre.value.trim(), email: f.email.value.trim(), whatsapp: f.whatsapp.value.trim(), web: f.web.value }, 'form_hero');
+      sendReservation(SLOTS[+f.horario.value], { nombre: f.nombre.value.trim(), email: f.email.value.trim(), whatsapp: f.whatsapp.value.trim(), web: f.web.value }, 'form_hero', prueba ? 'prueba' : '');
     });
   }
 
@@ -363,7 +373,7 @@
 
   /* ---------- Google Analytics 4: tras la primera interacción o a los 4 s ---------- */
   var gaDone = false;
-  function loadGA() {
+  function loadGA() { return;
     if (gaDone) return; gaDone = true;
     var s = document.createElement('script');
     s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=G-9HD0M84T4R';
@@ -402,7 +412,7 @@
       var when = x.s + (x.e ? ' a ' + x.e : '');
       html += '<div class="slot' + cls + '"><span><strong>' + escHtml(when) + '</strong> · ' + escHtml(x.c) + '</span>' +
         '<span class="st">' + escHtml(x.n) + '</span>' +
-        (x.n === 'Sin cupos' ? '' : '<button type="button" class="btn line" data-book="' + shown.indexOf(x) + '" aria-label="Reservar ' + escHtml(day + ' ' + when + ', ' + x.c) + '">Reservar</button>') + '</div>';
+        (x.n === 'Sin cupos' ? '<a class="btn line" href="https://docs.google.com/forms/d/e/1FAIpQLSc_2N-3LJi2xo3if-7LSAW6xaHB7lzH3qI6YMIpVi8gb1RDbw/viewform" target="_blank" rel="noopener noreferrer">Lista de espera</a>' : '<button type="button" class="btn line" data-book="' + shown.indexOf(x) + '" aria-label="Reservar ' + escHtml(day + ' ' + when + ', ' + x.c) + '">Reservar</button>') + '</div>';
     });
     slotGrid.innerHTML = html;
   }
@@ -441,7 +451,7 @@
     });
   }
   function openBook(x) {
-    if (!window.HTMLDialogElement) { window.location.href = '/#inscripcion'; return; }
+    if (!window.HTMLDialogElement) { window.location.href = '/ADB-DIC26/#inscripcion'; return; }
     if (!bookDlg) buildBook();
     bookSlot = x;
     var plan = planOf(x), p = PRICES[plan];
@@ -458,8 +468,44 @@
       if (btn && shown[+btn.getAttribute('data-book')]) openBook(shown[+btn.getAttribute('data-book')]);
     });
   }
+  /* ---------- Barra dinámica de cupos: se arma con los horarios de la hoja en todas las páginas ---------- */
+  function paintTicker() {
+    var track = document.querySelector('.bh-ticker-track');
+    if (!track || !SLOTS || !SLOTS.length) return;
+    var grupos = [['Disponible', 'HAY CUPOS', 'bh-ok'], ['Pocos cupos', 'POCOS CUPOS', 'bh-low'], ['Último cupo', 'ÚLTIMO CUPO', 'bh-last']];
+    var partes = [];
+    grupos.forEach(function (g) {
+      var items = SLOTS.filter(function (x) { return x.n === g[0]; });
+      if (!items.length) return;
+      var txt = items.map(function (x) { return escHtml(x.d.slice(0, 3) + ' ' + x.s + ' (' + x.c.split(' ')[0].toLowerCase() + ')'); }).join('&nbsp;&nbsp;&nbsp;&nbsp;');
+      partes.push('<span class="bh-tick-set"><span class="bh-dot ' + g[2] + '"></span><b>' + g[1] + ':</b>&nbsp;' + txt + '&nbsp;&nbsp;&nbsp;&nbsp;</span>');
+    });
+    if (!partes.length) return;
+    var set = partes.join('');
+    track.innerHTML = set + set + set + set;
+  }
+  paintTicker(); onData.push(paintTicker);
   if (slotGrid || priceNodes.length) {
     paintPrices(); paintSlots();
     onData.push(paintPrices, paintSlots);
   }
+})();
+
+/* ---------- Formularios de WhatsApp genéricos (regalos, horneado): data-wa-form + data-wa-title ---------- */
+(function () {
+  document.querySelectorAll('form[data-wa-form]').forEach(function (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+      var lines = [form.getAttribute('data-wa-title') || 'Hola! Quiero hacer una consulta:', ''];
+      Array.prototype.forEach.call(form.elements, function (el) {
+        if (!el.name || el.name === 'web' || el.type === 'submit') return;
+        var v = (el.value || '').trim();
+        if (!v) return;
+        var lab = el.id ? form.querySelector('label[for="' + el.id + '"]') : null;
+        lines.push((lab ? lab.textContent.trim() : el.name) + ': ' + v);
+      });
+      window.open('https://wa.me/5491156206435?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener,noreferrer');
+    });
+  });
 })();

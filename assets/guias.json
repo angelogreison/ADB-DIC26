@@ -1,0 +1,52 @@
+[
+    {
+        "img":  "assets/primera-clase-ceramica-sin-experiencia.webp",
+        "alt":  "Manos de una alumna afinando con una herramienta de madera una cabeza de animal de barro gris",
+        "w":  1821,
+        "h":  864,
+        "cat":  "Para empezar",
+        "title":  "Tu primera clase: qué esperar si no tenés experiencia",
+        "excerpt":  "Dura dos horas, no pide experiencia y los materiales ya están incluidos. Te contamos qué se hace, qué ropa conviene y qué pasa si tenés que mover tu turno.",
+        "href":  "blog/primera-clase-de-ceramica/"
+    },
+    {
+        "img":  "assets/modelado-manual-vs-torno-alfarero.webp",
+        "alt":  "Alumnas en una mesa del taller trabajando el barro a mano, con una figura de animal sin terminar en primer plano",
+        "w":  840,
+        "h":  840,
+        "cat":  "Elegir técnica",
+        "title":  "Modelado o alfarería: cuál elegir para empezar",
+        "excerpt":  "Una técnica se hace con las manos sobre la mesa y la otra, con el barro girando en el torno. Qué piezas salen de cada una y para quién es cada plan.",
+        "href":  "blog/modelado-vs-torno/"
+    },
+    {
+        "img":  "assets/mesa-herramientas-taller-caballito.webp",
+        "alt":  "Mesa de trabajo con pinceles, herramientas y tazas de cerámica pintadas, con estantes de madera al fondo",
+        "w":  1451,
+        "h":  688,
+        "cat":  "El proceso",
+        "title":  "Del barro a la pieza terminada: las etapas de la cerámica",
+        "excerpt":  "Modelado o torno, secado, bizcocho, esmaltado y cocción final: cinco pasos, cada uno con su tiempo, que no se pueden apurar.",
+        "href":  "blog/etapas-del-proceso-de-la-ceramica/"
+    },
+    {
+        "img":  "assets/clases-torno-alfarero-caballito.webp",
+        "alt":  "Alumnas trabajando en los tornos de alfarería del taller",
+        "w":  1254,
+        "h":  1254,
+        "cat":  "Alfarería",
+        "title":  "Qué se hace en una clase de alfarería",
+        "excerpt":  "Tazas, cuencos, platos, jarrones y macetas: las piezas redondas que mejor salen en el torno y cómo se centra, se abre y se levanta el barro.",
+        "href":  "blog/que-se-hace-en-torno/"
+    },
+    {
+        "img":  "assets/taller-de-ceramica-caballito.webp",
+        "alt":  "Grupo de personas alrededor de una mesa de madera en el taller, una de ellas con el pulgar arriba, y estantes con frascos al fondo",
+        "w":  1871,
+        "h":  840,
+        "cat":  "Reseñas",
+        "title":  "Lo que cuentan quienes ya vinieron",
+        "excerpt":  "Las reseñas de Google de quienes pasaron por el taller.",
+        "href":  "blog/opiniones-del-taller/"
+    }
+]
